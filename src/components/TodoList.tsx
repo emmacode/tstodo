@@ -1,17 +1,20 @@
 import { TodoShow } from "./TodoShow";
-import { TodoListProps } from "../types/TodoListType";
 import { TodoListStyle } from "../Styled/todo.style";
+import { useTodoContext } from "../hooks/useTodoContext";
+import { TodoContextProps } from "../context/todo";
 
-export const TodoList = ({ todos, onDelete, onEdit }: TodoListProps) => {
-  const renderedTodo = todos?.map(({ id, title, task }) => {
+export const TodoList = () => {
+  const { todos } = useTodoContext() as TodoContextProps;
+  const renderedTodo = todos?.map((todo) => {
     return (
       <TodoShow
-        key={id}
-        title={title}
-        id={id}
-        task={task}
-        onDelete={onDelete}
-        onEdit={onEdit}
+        key={todo.id}
+        todo={todo}
+        // title={title}
+        // id={id}
+        // task={task}
+        // onDelete={onDelete}
+        // onEdit={onEdit}
       />
     );
   });

@@ -1,19 +1,17 @@
 import { useState } from "react";
 import { TodoCreateStyle, TodoCreateFormStyle } from "../Styled/todo.style";
+import { useTodoContext } from "../hooks/useTodoContext";
+import { TodoContextProps } from "../context/todo";
 
-interface CreateTodoProps {
-  onCreate: (title: string, task: string) => void;
-}
-
-export const TodoCreate: React.FC<CreateTodoProps> = ({
-  onCreate,
-}: CreateTodoProps) => {
+export const TodoCreate: React.FC = () => {
   const [title, setTitle] = useState("");
   const [task, setTask] = useState("");
 
+  const { createTodo } = useTodoContext() as TodoContextProps;
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    onCreate(title, task);
+    createTodo(title, task);
     setTitle("");
     setTask("");
   };

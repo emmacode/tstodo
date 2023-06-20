@@ -1,6 +1,6 @@
-// import { useContext } from "react";
-// import { TodoContext } from "../context/todo";
+import { useContext } from "react";
+import { TodoContext,TodoContextProps } from "../context/todo";
 
-// export function useTodoContext(){
-//     return useContext(TodoContext);
-// }
+export function useTodoContext(): TodoContextProps | null{
+    return useContext(TodoContext);
+}

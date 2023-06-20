@@ -1,20 +1,23 @@
 import { useState } from "react";
-import { TodoEditProps } from "../types/TodoListType";
+import { Todo } from "../types/TodoListType";
+import { useTodoContext } from "../hooks/useTodoContext";
+import { TodoContextProps } from "../context/todo";
 
-export const EditTodo = ({
-  id,
-  title,
-  task,
-  onSubmit,
-  onEdit,
-}: TodoEditProps) => {
-  const [editTitle, setEditTitle] = useState(title);
-  const [editTask, setEditTask] = useState(task);
+interface EditTodoProps {
+  todo: Todo;
+  onSubmit: () => void;
+}
+
+export const EditTodo = ({ onSubmit, todo }: EditTodoProps) => {
+  const [editTitle, setEditTitle] = useState(todo.title);
+  const [editTask, setEditTask] = useState(todo.task);
+
+  const { editTodoById } = useTodoContext() as TodoContextProps;
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (id) {
-      onEdit(id, editTitle, editTask);
+    if (todo.id) {
+      editTodoById(todo.id, editTitle, editTask);
     }
     onSubmit();
   };

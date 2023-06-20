@@ -2,13 +2,20 @@ import { Todo } from "../types/TodoListType";
 import { TodoShowStyle, TodoActionStyle } from "../Styled/todo.style";
 import { useState } from "react";
 import { EditTodo } from "./EditTodo";
+import { useTodoContext } from "../hooks/useTodoContext";
+import { TodoContextProps } from "../context/todo";
+interface TodoShowProps {
+  todo: Todo;
+}
 
-export const TodoShow = ({ title, task, id, onDelete, onEdit }: Todo) => {
+export const TodoShow = ({ todo }: TodoShowProps) => {
   const [showEdit, setShowEdit] = useState(false);
 
+  const { deleteTodoById } = useTodoContext() as TodoContextProps;
+
   const handleDeleteClick = () => {
-    if (id) {
-      onDelete(id);
+    if (todo.id) {
+      deleteTodoById(todo.id);
     }
   };
 
@@ -20,23 +27,15 @@ export const TodoShow = ({ title, task, id, onDelete, onEdit }: Todo) => {
     setShowEdit(false);
   };
 
-  let content = <span>{title}</span>;
+  let content = <span>{todo.title}</span>;
   if (showEdit) {
-    content = (
-      <EditTodo
-        id={id}
-        title={title}
-        task={task}
-        onEdit={onEdit}
-        onSubmit={handleSubmit}
-      />
-    );
+    content = <EditTodo todo={todo} onSubmit={handleSubmit} />;
   }
 
   return (
     <TodoShowStyle>
       <h2>{content}</h2>
-      <p>{task}</p>
+      <p>{todo.task}</p>
       <TodoActionStyle>
         <button onClick={handleEditClick}>Edit</button>
         <button onClick={handleDeleteClick}>Delete</button>
