@@ -13,8 +13,8 @@ function App() {
 
   return (
     <div>
-      {isLoading ? <h1>Loading...</h1> : <TodoList />}
       <TodoCreate />
+      {isLoading ? <h1>Loading...</h1> : <TodoList />}
     </div>
   );
 }
