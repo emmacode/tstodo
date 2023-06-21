@@ -5,18 +5,9 @@ import { TodoContextProps } from "../context/todo";
 
 export const TodoList = () => {
   const { todos } = useTodoContext() as TodoContextProps;
+
   const renderedTodo = todos?.map((todo) => {
-    return (
-      <TodoShow
-        key={todo.id}
-        todo={todo}
-        // title={title}
-        // id={id}
-        // task={task}
-        // onDelete={onDelete}
-        // onEdit={onEdit}
-      />
-    );
+    return <TodoShow key={todo.id} todo={todo} />;
   });
   return <TodoListStyle>{renderedTodo}</TodoListStyle>;
 };

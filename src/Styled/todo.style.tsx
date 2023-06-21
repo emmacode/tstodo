@@ -1,8 +1,36 @@
 import styled from "styled-components";
 
+export const AppStyle = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+`;
+
+export const RetryButton = styled.button`
+  padding: 10px;
+  color: #fff;
+  background-color: #000;
+  border: none;
+  outline: none;
+  width: 100px;
+  cursor: pointer;
+  border-bottom-left-radius: 9999px;
+  border-bottom-right-radius: 9999px;
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+`;
+
+export const NetworkStyle = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+`;
+
 export const TodoCreateStyle = styled.div`
   display: flex;
   justify-content: center;
+  flex-direction: column;
 `;
 
 export const TodoCreateFormStyle = styled.form`
@@ -58,4 +86,10 @@ export const TodoActionStyle = styled.div`
   & button:last-child {
     margin-right: 0;
   }
+`;
+
+export const TodoEditFormStyle = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;

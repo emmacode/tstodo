@@ -7,7 +7,7 @@ export const TodoCreate: React.FC = () => {
   const [title, setTitle] = useState("");
   const [task, setTask] = useState("");
 
-  const { createTodo } = useTodoContext() as TodoContextProps;
+  const { createTodo, isCreateError } = useTodoContext() as TodoContextProps;
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -42,6 +42,7 @@ export const TodoCreate: React.FC = () => {
           <button>Create</button>
         </div>
       </TodoCreateFormStyle>
+      <div>{isCreateError && <div>{isCreateError}</div>}</div>
     </TodoCreateStyle>
   );
 };

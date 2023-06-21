@@ -14,9 +14,7 @@ export const TodoShow = ({ todo }: TodoShowProps) => {
   const { deleteTodoById } = useTodoContext() as TodoContextProps;
 
   const handleDeleteClick = () => {
-    if (todo.id) {
-      deleteTodoById(todo.id);
-    }
+    deleteTodoById(todo.id);
   };
 
   const handleEditClick = () => {
