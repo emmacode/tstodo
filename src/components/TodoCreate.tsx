@@ -26,6 +26,7 @@ export const TodoCreate: React.FC = () => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Title"
+            required
           />
         </div>
 
@@ -35,6 +36,7 @@ export const TodoCreate: React.FC = () => {
             value={task}
             onChange={(e) => setTask(e.target.value)}
             placeholder="Task"
+            required
           />
         </div>
 

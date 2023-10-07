@@ -28,6 +28,7 @@ export const EditTodo = ({ onSubmit, todo }: EditTodoProps) => {
           <div>
             <input
               type="text"
+              aria-label="editTitle"
               value={editTitle}
               onChange={(e) => setEditTitle(e.target.value)}
             />
@@ -36,6 +37,7 @@ export const EditTodo = ({ onSubmit, todo }: EditTodoProps) => {
           <div>
             <input
               type="text"
+              aria-label="editTask"
               value={editTask}
               onChange={(e) => setEditTask(e.target.value)}
             />

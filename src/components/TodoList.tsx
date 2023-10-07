@@ -9,5 +9,14 @@ export const TodoList = () => {
   const renderedTodo = todos?.map((todo) => {
     return <TodoShow key={todo.id} todo={todo} />;
   });
-  return <TodoListStyle>{renderedTodo}</TodoListStyle>;
+
+  return (
+    <>
+      {todos.length === 0 ? (
+        <h1>Empty List</h1>
+      ) : (
+        <TodoListStyle>{renderedTodo}</TodoListStyle>
+      )}
+    </>
+  );
 };

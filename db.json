@@ -1,9 +1,3 @@
 {
-  "todo": [
-    {
-      "title": "Amazing ok",
-      "task": "yeah we are good to go with typescript now",
-      "id": 3
-    }
-  ]
+  "todo": []
 }
